@@ -6,34 +6,60 @@ $(document).ready(function() {
     var operators = ['plus','minus','multiply','divide'];
 
     var input = [];
+    var isNewOperation = true;
 
     $('.number').click(function() {
+        if (isNewOperation) {
+            $('#result').text('');
+            isNewOperation = false;
+        }
         var clickedNumber = $(this).attr("id");
         input.push(clickedNumber);
+        $('#result').append(clickedNumber);
     });
 
     $('#plus').click(function() {
+        if (isNewOperation) {
+            $('#result').text('');
+            isNewOperation = false;
+        }
         //Check that a number has been pushed before the operator
         if (input.length > 0 && operators.includes(input[input.length-1]) == false){
             input.push("plus");
+            $('#result').append('+');
         }
     });
     $('#minus').click(function() {
+        if (isNewOperation) {
+            $('#result').text('');
+            isNewOperation = false;
+        }
         //Check that a number has been pushed before the operator
         if (input.length > 0 && operators.includes(input[input.length-1]) == false){
             input.push("minus");
+            $('#result').append('-');
         }
     });
     $('#multiply').click(function() {
+        if (isNewOperation) {
+            $('#result').text('');
+            isNewOperation = false;
+        }
         //Check that a number has been pushed before the operator
         if (input.length > 0 && operators.includes(input[input.length-1]) == false){
             input.push("multiply");
+            $('#result').append('*');
         }
     });
     $('#divide').click(function() {
+        if (isNewOperation) {
+            $('#result').text('');
+            isNewOperation = false;
+        }
         //Check that a number has been pushed before the operator
         if (input.length > 0 && operators.includes(input[input.length-1]) == false){
             input.push("divide");
+            $('#result').append('/');
         }
     });
 
@@ -82,12 +108,13 @@ $(document).ready(function() {
         }
 
 
-        $('body').append(result);
+        $('#result').text(result);
         
-        //Reset variables
+        //reset all variables
         result = 0;
         operation = [];
         input = [];
+        isNewOperation = true;
     });
 
 });
