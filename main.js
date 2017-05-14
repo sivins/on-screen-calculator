@@ -83,8 +83,11 @@ $(document).ready(function() {
 
 
         $('body').append(result);
+        
+        //Reset variables
         result = 0;
         operation = [];
+        input = [];
     });
 
 });
