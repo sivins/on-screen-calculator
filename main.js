@@ -1,7 +1,4 @@
 $(document).ready(function() {
-    for (i = 0; i <= 9; i++){
-        $('body').append('<div id ="' + i + '" class="number">' + i + '</div>');
-    }
 
     var operators = ['plus','minus','multiply','divide'];
 
